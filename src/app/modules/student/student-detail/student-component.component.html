@@ -1,0 +1,25 @@
+<tr class="student-table-row">
+    <td>
+        {{student.id}}
+    </td>
+    <td>
+        <div *ngIf="!showEdit"> {{student.firstName}} </div>
+        <input *ngIf="showEdit" placeholder="New first name" [value]="student.firstName" />
+    </td>
+    <td>
+        <div *ngIf="!showEdit"> {{student.lastName}} </div>
+        <input *ngIf="showEdit" placeholder="New last name" [value]="student.lastName"/>
+    </td>
+    <td>
+        <div *ngIf="!showEdit"> {{student.email}} </div>
+        <input *ngIf="showEdit" placeholder="New email" [value]="student.email" />
+    </td>
+    <td>
+        <div class="flex place-content-around w-[100%] h-[100%]">
+            <app-button *ngIf="!showEdit" (click)="handleShowEdit()" class="" [text]="'Edit'" [click]="studentShowEditEmitter"/>
+            <app-button *ngIf="showEdit" (click)="handleShowEdit()" class="" [text]="'Cancel'" [click]="studentShowEditEmitter"/>
+            <app-button *ngIf="showEdit" (click)="prepareUpdate()" class="" [text]="'Update'" [click]="studentUpdateEmitter"/>
+            <app-button *ngIf="showDelete&&!showEdit" (click)="prepareDeletion()" class="" [text]="'Delete'" [click]="studentDeletionEmitter"/>
+        </div>
+    </td>
+</tr>

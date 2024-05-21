@@ -1,0 +1,7 @@
+input {
+    @apply border rounded-lg w-[10rem] px-2
+}
+
+form {
+    @apply w-[90%] m-auto flex flex-col justify-center items-center
+}

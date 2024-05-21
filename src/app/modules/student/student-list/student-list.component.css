@@ -1,0 +1,13 @@
+/* @import url(../../../app.component.css); */
+
+table {
+    @apply table w-[100%] m-auto
+}
+
+thead {
+    @apply grid grid-flow-col grid-cols-5 text-center 
+}
+
+th {
+    @apply border border-black bg-zinc-600 text-gray-100
+}

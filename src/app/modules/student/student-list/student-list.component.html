@@ -1,0 +1,21 @@
+<div>
+    <h3>Student Management</h3>
+    <app-button class="relative left-[90vw]" (click)="handleShowDelete()" [text]="'Show Delete'" [click]="showDeletEmitter" />
+
+    <table>
+        <thead >
+            <th class="table-header-group">ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </thead>
+        <tbody class="text-center">
+            <app-student-component 
+                *ngFor="let student of studentList" [student]="student" [showDelete]="showDelete"
+            />
+        </tbody>
+    </table>
+    <app-add-student></app-add-student>
+
+</div>

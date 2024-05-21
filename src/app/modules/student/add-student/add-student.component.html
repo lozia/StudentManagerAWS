@@ -1,0 +1,30 @@
+<form #form="ngForm" (ngSubmit)="handleAddStudent(form.value)">
+    <table>
+        <h4 class="font-bold">Add a Student</h4>
+        <tr>
+            <td>
+                <label for="firstName">First name: </label>
+            </td>
+            <td>
+                <input type="text" ngModel name="firstName" id="firstName">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="lastName">Last Name:</label>
+            </td>
+            <td>
+                <input type="text" ngModel name="lastName" id="lastName">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">Email:</label>
+            </td>
+            <td>
+                <input type="email" ngModel name="email" id="email">
+            </td>
+        </tr>
+        <button class="w-auto" type="submit">Save</button>
+    </table>
+</form>
