@@ -4,15 +4,15 @@
     </td>
     <td>
         <div *ngIf="!showEdit"> {{student.firstName}} </div>
-        <input *ngIf="showEdit" placeholder="New first name" [value]="student.firstName" />
+        <input *ngIf="showEdit" placeholder="New first name" [value]="student.firstName" (input)="changeFirstName($event)" />
     </td>
     <td>
         <div *ngIf="!showEdit"> {{student.lastName}} </div>
-        <input *ngIf="showEdit" placeholder="New last name" [value]="student.lastName"/>
+        <input *ngIf="showEdit" placeholder="New last name" [value]="student.lastName" (input)="changeLastName($event)"/>
     </td>
     <td>
         <div *ngIf="!showEdit"> {{student.email}} </div>
-        <input *ngIf="showEdit" placeholder="New email" [value]="student.email" />
+        <input *ngIf="showEdit" placeholder="New email" [value]="student.email" (input)="changeEmail($event)" />
     </td>
     <td>
         <div class="flex place-content-around w-[100%] h-[100%]">

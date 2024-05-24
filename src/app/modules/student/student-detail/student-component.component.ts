@@ -14,6 +14,11 @@ export class StudentDetailComponent {
   @Input({required: true})
   student!: IStudent;
 
+  newFirstName: string = "";
+  newLastName: string = "";
+  newEmail: string = "";
+
+
   @Output()
   studentShowDeletionEmitter: EventEmitter<any> = new EventEmitter();
   @Output()
@@ -29,6 +34,11 @@ export class StudentDetailComponent {
   }
   handleShowEdit(){
     this.showEdit = !this.showEdit;
+    if(this.showEdit){
+      this.newFirstName=this.student.firstName;
+      this.newLastName=this.student.lastName;
+      this.newEmail=this.student.email;
+    }
   }
 
   prepareDeletion(){
@@ -38,8 +48,20 @@ export class StudentDetailComponent {
   }
 
   prepareUpdate(){
+    this.studentService.updateStudent(this.student.id, {id:this.student.id, firstName:this.newFirstName, lastName:this.newLastName, email:this.newEmail});
     this.showEdit = false;
   }
 
+  changeFirstName(event:Event){
+    this.newFirstName = (<HTMLInputElement>event.target).value;
+  }
+
+  changeLastName(event:Event){
+    this.newLastName = (<HTMLInputElement>event.target).value;
+  }
+
+  changeEmail(event:Event){
+    this.newEmail = (<HTMLInputElement>event.target).value;
+  }
 
 }
