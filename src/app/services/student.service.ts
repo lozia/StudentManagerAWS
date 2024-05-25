@@ -3,7 +3,7 @@ import { IStudent } from '../models/IStudent';
 import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
 
-const STUDENT_API = "http://172.31.11.254:8080/api/student"
+const STUDENT_API = "http://3.137.220.117:8080/api/student"
 
 
 @Injectable({
