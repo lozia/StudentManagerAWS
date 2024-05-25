@@ -48,7 +48,8 @@ export class StudentDetailComponent {
   }
 
   prepareUpdate(){
-    this.studentService.updateStudent(this.student.id, {id:this.student.id, firstName:this.newFirstName, lastName:this.newLastName, email:this.newEmail});
+    this.student = {id:this.student.id, firstName:this.newFirstName, lastName:this.newLastName, email:this.newEmail};
+    this.studentService.updateStudent(this.student.id, this.student);
     this.showEdit = false;
   }
 
