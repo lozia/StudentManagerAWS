@@ -1,5 +1,4 @@
 <div>
-    <h3>Student Management</h3>
     <app-button class="ml-[70%]" (click)="handleShowDelete()" [text]="'Show Delete'" [click]="showDeletEmitter" />
 
     <table>
@@ -12,10 +11,10 @@
         </thead>
         <tbody class="text-center">
             <app-student-component 
-                *ngFor="let student of studentList" [student]="student" [showDelete]="showDelete"
+                *ngFor="let student of studentList" [student]="student" [showDelete]="showDelete" (studentDeletionEmitter)="handleDelete($event)"
             />
         </tbody>
     </table>
-    <app-add-student></app-add-student>
+
 
 </div>

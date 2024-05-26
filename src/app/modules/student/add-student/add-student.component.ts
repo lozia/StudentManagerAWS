@@ -10,6 +10,9 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class AddStudentComponent {
 
+  @Output()
+  studentAddEmitter: EventEmitter<boolean> = new EventEmitter();
+
   constructor(private studentService:StudentService){
 
   }
@@ -17,6 +20,6 @@ export class AddStudentComponent {
   handleAddStudent(object: any){
     // console.log(object);
     this.studentService.addStudent(object);
-    // this.addStudent({id:4, firstName:'Zongyao', lastName:'Li', email: 'lizongyao9745@hotmail.com'});
+    this.studentAddEmitter.emit(true);
   }
 }

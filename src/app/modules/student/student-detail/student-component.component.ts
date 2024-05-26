@@ -25,7 +25,7 @@ export class StudentDetailComponent {
   studentShowEditEmitter: EventEmitter<IStudent> = new EventEmitter();
 
   @Output()
-  studentDeletionEmitter: EventEmitter<IStudent> = new EventEmitter();
+  studentDeletionEmitter: EventEmitter<number> = new EventEmitter();
   @Output()
   studentUpdateEmitter: EventEmitter<IStudent> = new EventEmitter();
 
@@ -42,9 +42,9 @@ export class StudentDetailComponent {
   }
 
   prepareDeletion(){
-    console.log(`Removing student ${this.student.id}`)
+    // console.log(`Removing student ${this.student.id}`)
     this.studentService.deleteStudent(this.student.id);
-    // this.studentDeletionEmitter.emit(this.student);
+    this.studentDeletionEmitter.emit(this.student.id);
   }
 
   prepareUpdate(){

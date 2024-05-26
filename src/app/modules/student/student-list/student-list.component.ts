@@ -19,19 +19,18 @@ export class StudentListComponent implements OnInit {
   }
   ngOnInit(): void {
     this.studentService.getAllStudents().subscribe((data:IStudent[])=>{
-    // console.log(data);
     this.studentList = data;
     })
   }
 
-  handleDelete(event: IStudent){
-    this.studentService.deleteStudent(event.id);
-    console.log("Remove completed.")
+  handleDelete(event: number){
+    this.studentList = this.studentList.filter((student)=>{
+      return student.id !== event;
+    })
   }
 
   handleShowDelete(){
     this.showDelete = !this.showDelete;
-    // console.log("Shown button.")
   }
 
 }
